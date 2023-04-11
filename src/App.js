@@ -1,8 +1,9 @@
+import Header from './screens/Header';
 
 function App() {
   return (
     <>
-      start!
+      <Header/>
     </>
   );
 }
