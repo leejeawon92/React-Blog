@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
+
 
 const HeaderMain = styled.div`
   display: flex;
@@ -24,7 +26,7 @@ const RightCol = styled.div`
 `
 const BlogName = styled.span``
 
-const BlogMenu = styled.div``
+const BlogMenu = styled.ul``
 
 const Notifi = styled.div`
 `
@@ -37,9 +39,9 @@ function Header() {
         <LefttCol>
           <BlogName>블로그이름</BlogName>
           <BlogMenu>
-            <span>메뉴1</span>
-            <span>메뉴2</span>
-            <span>메뉴3</span>
+            <Link to='/' style={{ textDecoration: "none" }}>홈페이지</Link>
+            <Link to='/join' style={{ textDecoration: "none" }}>로그인</Link>
+            <Link to='/login' style={{ textDecoration: "none" }}>회원가입</Link>
           </BlogMenu>
         </LefttCol>
         <RightCol>
