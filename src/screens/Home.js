@@ -1,8 +1,11 @@
+import Header from './Header';
+import Sidemenu from './Sidemenu';
 
 function Home() {
   return (
     <>
-      홈페이지
+      <Header/>
+      <Sidemenu/>
     </>
   );
 }
