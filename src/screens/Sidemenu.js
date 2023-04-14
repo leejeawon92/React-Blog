@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const SideMain = styled.div`
@@ -8,18 +9,26 @@ const SideMain = styled.div`
 `
 
 const Content = styled.ul`
+    
 `
+const StyledLink = styled(Link)`
+	box-sizing: border-box;
+	display: block;
+	padding: 4px 8px;
+	margin: 0 auto;
+	text-align: center;
+`;
 
 function Sidemenu() {
   return (
     <>
       <SideMain>
         <Content>
-          <h3>HTML</h3>
-          <h3>CSS</h3>
-          <h3>JavaScript</h3>
-          <h3>React</h3>
-          <h3>NodeJS</h3>
+          <StyledLink to='/category/HTML' style={{ textDecoration: "none" }}>HTML</StyledLink>
+          <StyledLink to='/category/CSS' style={{ textDecoration: "none" }}>CSS</StyledLink>
+          <StyledLink to='/category/JavaScript' style={{ textDecoration: "none" }}>JavaScript</StyledLink>
+          <StyledLink to='/category/React' style={{ textDecoration: "none" }}>React</StyledLink>
+          <StyledLink to='/category/NodeJS' style={{ textDecoration: "none" }}>NodeJS</StyledLink>
         </Content>
       </SideMain>
     </>
