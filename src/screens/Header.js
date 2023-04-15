@@ -40,8 +40,8 @@ function Header() {
           <BlogName>블로그이름</BlogName>
           <BlogMenu>
             <Link to='/' style={{ textDecoration: "none" }}>홈페이지</Link>
-            <Link to='/join' style={{ textDecoration: "none" }}>로그인</Link>
-            <Link to='/login' style={{ textDecoration: "none" }}>회원가입</Link>
+            <Link to='/login' style={{ textDecoration: "none" }}>로그인</Link>
+            <Link to='/join' style={{ textDecoration: "none" }}>회원가입</Link>
           </BlogMenu>
         </LefttCol>
         <RightCol>
