@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const LoginMain = styled.div`
@@ -17,14 +18,32 @@ const LoginForm = styled.form`
 `
 
 function Login() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    console.log('Email', email);
+    console.log('Password', password);
+  }
   return (
     <>
       <LoginMain>
-        <LoginForm >
+        <LoginForm onSubmit={onSubmit}>
           <label>Email</label>
-          <input type='email' />
+          <input type='email' value={email} onChange={onEmailChange} />
           <label>Password</label>
-          <input type='password' />
+          <input type='password' value={password} onChange={onPasswordChange} />
           <br />
           <button formAction=''>Login</button>
         </LoginForm>
