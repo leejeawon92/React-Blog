@@ -7,7 +7,6 @@ import Join from './screens/Join';
 function App() {
   return (
     <>
-      <Header/>
       <Routes>
         <Route path='/'  element={<Home/>} >홈페이지</Route>
         <Route path='/login'  element={<Login />} >로그인</Route>

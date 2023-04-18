@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Header from './Header';
 
 const JoinMain = styled.div`
   display: flex;
@@ -18,7 +19,6 @@ const JoinForm = styled.form`
 `
 
 function Join() {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -40,14 +40,11 @@ function Join() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
-    console.log('Email', email);
-    console.log('name', password);
-    console.log('Password', password);
-    console.log('Password2', password2);
   }
+
   return (
     <>
+      <Header/>
       <JoinMain>
         <JoinForm onSubmit={onSubmit}>
           <label>이메일</label>
@@ -57,9 +54,9 @@ function Join() {
           <label>패스워드</label>
           <input type='password' value={password} onChange={onPasswordChange} />
           <label>패스워드 재입력</label>
-          <input type='password' value={password} onChange={onPassword2Change} />
+          <input type='password' value={password2} onChange={onPassword2Change} />
           <br />
-          <button formAction=''>Login</button>
+          <button>회원가입</button>
         </JoinForm>
       </JoinMain>
     </>

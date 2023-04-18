@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 
 const LoginMain = styled.div`
   display: flex;
@@ -18,9 +20,10 @@ const LoginForm = styled.form`
 `
 
 function Login() {
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginCheck, setLoginCheck] = useState(true);
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -33,11 +36,13 @@ function Login() {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    console.log('Email', email);
-    console.log('Password', password);
+    setLoginCheck(false);
+    navigate('/');
   }
+
   return (
     <>
+      <Header loginCheck={loginCheck}/>
       <LoginMain>
         <LoginForm onSubmit={onSubmit}>
           <label>Email</label>
@@ -45,7 +50,7 @@ function Login() {
           <label>Password</label>
           <input type='password' value={password} onChange={onPasswordChange} />
           <br />
-          <button formAction=''>Login</button>
+          <button>Login</button>
         </LoginForm>
       </LoginMain>
     </>
