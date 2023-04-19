@@ -33,7 +33,7 @@ const Notifi = styled.div`
 const UserAvatar = styled.div``
 
 function Header({loginCheck}) {
-  
+  console.log(`header: ${loginCheck}`);
   return (
     <>
       <HeaderMain>
@@ -41,7 +41,7 @@ function Header({loginCheck}) {
           <BlogName>블로그이름</BlogName>
           <BlogMenu>
             <Link to='/' style={{ textDecoration: "none" }}>홈페이지</Link>
-            {loginCheck 
+            {loginCheck
               ? <Link to='/logout' style={{ textDecoration: "none" }}>로그아웃</Link>
               : <Link to='/login' style={{ textDecoration: "none" }}>로그인</Link>
             }

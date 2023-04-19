@@ -2,9 +2,10 @@ import Header from './Header';
 import Sidemenu from './Sidemenu';
 
 function Home() {
+  const loginCheck = false;
   return (
     <>
-      <Header/>
+      <Header loginCheck={loginCheck}/>
       <Sidemenu/>
     </>
   );

@@ -23,7 +23,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginCheck, setLoginCheck] = useState(true);
+  const [loginCheck, setLoginCheck] = useState(false);
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -36,10 +36,10 @@ function Login() {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    setLoginCheck(false);
+    setLoginCheck(true);
     navigate('/');
   }
-
+  console.log(`login: ${loginCheck}`);
   return (
     <>
       <Header loginCheck={loginCheck}/>

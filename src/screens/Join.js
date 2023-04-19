@@ -23,6 +23,7 @@ function Join() {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [name, setName] = useState('');
+  const loginCheck = false;
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -44,7 +45,7 @@ function Join() {
 
   return (
     <>
-      <Header/>
+      <Header loginCheck={loginCheck}/>
       <JoinMain>
         <JoinForm onSubmit={onSubmit}>
           <label>이메일</label>
