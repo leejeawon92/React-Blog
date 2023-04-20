@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
 
@@ -33,7 +33,12 @@ const Notifi = styled.div`
 const UserAvatar = styled.div``
 
 function Header({loginCheck}) {
-  console.log(`header: ${loginCheck}`);
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate('/write');
+  }
+  
   return (
     <>
       <HeaderMain>
@@ -49,7 +54,7 @@ function Header({loginCheck}) {
           </BlogMenu>
         </LefttCol>
         <RightCol>
-          <button>글쓰기</button>
+          <button onClick={onClick}>글쓰기</button>
           <Notifi>알림</Notifi>
           <UserAvatar>아바타</UserAvatar>
         </RightCol>
