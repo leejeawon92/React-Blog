@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import Header from './Header';
+import { Editor } from "react-draft-wysiwyg";
+import { EditorState, convertToRaw } from "draft-js";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { useState } from 'react';
+import draftjsToHtml from "draftjs-to-html";
 
 const WriteForm = styled.div`
   width: 80%;
@@ -29,13 +34,40 @@ const WriteBtn = styled.button`
 `
 
 function Write() {
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [htmlString, setHtmlString] = useState("");
+
+  const updateTextDescription = async (state) => {
+    await setEditorState(state);
+    const html = draftjsToHtml(convertToRaw(editorState.getCurrentContent()));
+    setHtmlString(html);
+  };
+  const uploadCallback = () => {
+    console.log("이미지 업로드");
+  };
+
 
   return (
     <>
       <Header/>
       <WriteForm>
         <input type='text' placeholder='제목을 입력하세요'></input>
-        <textarea placeholder='내용을 입력하세요'></textarea>
+        {/* <textarea placeholder='내용을 입력하세요'></textarea> */}
+        <Editor
+          placeholder="게시글을 작성해주세요"
+          editorState={editorState}
+          onEditorStateChange={updateTextDescription}
+          toolbar={{
+            image: { uploadCallback: uploadCallback },
+          }}
+          localization={{ locale: "ko" }}
+          editorStyle={{
+            height: "400px",
+            width: "100%",
+            border: "3px solid lightgray",
+            padding: "20px",
+          }}
+        />
         <WriteBtn>입력</WriteBtn>
       </WriteForm>
     </>
